@@ -99,17 +99,12 @@ img {
 }
 
 .job-list li {
-  position: relative;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
-.job-list li:hover {
-  background-color: #f5f5f5;
+p {
+  left: 4px;
 }
 
 .description-container {
@@ -120,13 +115,10 @@ img {
   border-radius: 5px;
   font-size: 14px;
   color: #0a9396;
+  position: absolute; /* Prevent overlapping content flow */
+  z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
 .job-description {
-  display: none;
-  color: #0a9396;
-}
-
-p {
-  left: 4px;
+  display: none; /* This element shouldn't be visible if unused */
 }
