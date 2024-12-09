@@ -1,35 +1,28 @@
 $(document).ready(function () {
-  // Attach click event handler to the toggle button
+  // Sidebar toggle
   $('#toggleButton').on('click', function () {
-    const $sideNav = $('#sideNav'); // Select the side navigation element
-    const isSidebarOpen = $sideNav.css('left') === '0px'; // Check if the sidebar is open
-
-    // Toggle the sidebar's position
-    if (isSidebarOpen) {
-      $sideNav.css('left', '-250px'); // Close sidebar
-    } else {
-      $sideNav.css('left', '0'); // Open sidebar
-    }
+    $('#sideNav').toggleClass('open');
   });
 
-  const images = ['sheep.jpeg', 'Cows.jpeg']; // Add your image paths here
+  // Image switching logic
+  const images = ['sheep.jpeg', 'Cows.jpeg'];
   let currentImageIndex = 0;
 
   function switchImage() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
-    $('#image').attr('src', images[currentImageIndex]); // Update the src attribute
+    $('#image').attr('src', images[currentImageIndex]);
   }
 
-  // Set the interval to switch images every 3 seconds (3000 milliseconds)
   setInterval(switchImage, 3000);
 
-  // Inline description display on hover
+  // Job list hover descriptions
   $('.job-list li').hover(
     function () {
       const description = $(this).data('description');
       if (description) {
-        $(this).find('.description-container').remove();
-        $(this).append(`<div class='description-container'>${description}</div>`);
+        const $descriptionContainer = $('<div class="description-container"></div>');
+        $descriptionContainer.text(description);
+        $(this).append($descriptionContainer);
       }
     },
     function () {
