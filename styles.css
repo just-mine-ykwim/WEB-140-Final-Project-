@@ -99,8 +99,10 @@ img {
 }
 
 .job-list li {
+  position: relative;
   margin-bottom: 10px;
   cursor: pointer;
+  text-align: center;
 }
 
 p {
