@@ -1,15 +1,17 @@
-function toggleSidebar() {
-  const $sideNav = $('#sideNav'); // Select the side navigation element
-  const isSidebarOpen = $sideNav.css('left') === '0px'; // Check if the sidebar is open
-
-  if (isSidebarOpen) {
-    $sideNav.css('left', '-250px'); // Close sidebar
-  } else {
-    $sideNav.css('left', '0'); // Open sidebar
-  }
-}
-
 $(document).ready(function () {
+  // Attach click event handler to the toggle button
+  $('#toggleButton').on('click', function () {
+    const $sideNav = $('#sideNav'); // Select the side navigation element
+    const isSidebarOpen = $sideNav.css('left') === '0px'; // Check if the sidebar is open
+
+    // Toggle the sidebar's position
+    if (isSidebarOpen) {
+      $sideNav.css('left', '-250px'); // Close sidebar
+    } else {
+      $sideNav.css('left', '0'); // Open sidebar
+    }
+  });
+
   const images = ['sheep.jpeg', 'Cows.jpeg']; // Add your image paths here
   let currentImageIndex = 0;
 
